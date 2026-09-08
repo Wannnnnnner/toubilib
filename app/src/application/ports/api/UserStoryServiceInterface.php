@@ -1,0 +1,36 @@
+<?php
+namespace jira\application\ports\api;
+
+use jira\application\dtos\CreateUserStoryDTO;
+use jira\application\dtos\UpdateUserStoryDTO;
+use jira\application\dtos\UserStoryOutputDTO;
+
+interface UserStoryServiceInterface {
+
+    // ── @throws UserStoryNotFoundException
+    // ── @throws StatusChangeNotAllowedException
+    public function start(string $id): void;
+
+    // ── @throws UserStoryNotFoundException
+    // ── @throws StatusChangeNotAllowedException
+    public function finish(string $id): void;
+
+    // ── @throws UserStoryNotFoundException
+    // ── @throws StatusChangeNotAllowedException
+    public function close(string $id): void;
+
+    // ── @return UserStoryOutputDTO
+    public function getUserStoryById(string $id): UserStoryOutputDTO;
+
+    // ── @return UserStory[]
+    public function getAllUserStories(): array;
+
+    // ── @return UserStoryOutputDTO
+    public function createUserStory(CreateUserStoryDTO $dto): UserStoryOutputDTO;
+
+    // ── @throws UserStoryNotFoundException
+    public function deleteUserStory(string $id): void;
+
+    // ── @throws UserStoryNotFoundException
+    public function updateUserStory(string $id, UpdateUserStoryDTO $dto): UserStoryOutputDTO;
+}
