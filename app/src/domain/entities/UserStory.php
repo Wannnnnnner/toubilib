@@ -1,5 +1,5 @@
 <?php
-namespace jira\domain\entities;
+namespace toubilib\domain\entities;
 
 use Ramsey\Uuid\Uuid;
 use jira\domain\exceptions\StatusChangeNotAllowedException;

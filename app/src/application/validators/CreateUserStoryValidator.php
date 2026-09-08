@@ -1,5 +1,5 @@
 <?php
-namespace jira\application\validators;
+namespace toubilib\application\validators;
 
 use jira\domain\entities\Owner;
 use jira\application\dtos\CreateUserStoryDTO;

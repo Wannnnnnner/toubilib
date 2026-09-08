@@ -1,5 +1,5 @@
 <?php
-namespace jira\application\ports\api;
+namespace toubilib\application\ports\api;
 
 use jira\application\dtos\CreateUserStoryDTO;
 use jira\application\dtos\UpdateUserStoryDTO;

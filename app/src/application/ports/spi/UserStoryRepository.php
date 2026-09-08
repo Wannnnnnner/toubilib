@@ -1,5 +1,5 @@
 <?php
-namespace jira\application\ports\spi;
+namespace toubilib\application\ports\spi;
 
 use jira\domain\entities\UserStory;
 

@@ -1,5 +1,5 @@
 <?php
-namespace jira\adapters\controllers\actions;
+namespace toubilib\adapters\controllers\actions;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;

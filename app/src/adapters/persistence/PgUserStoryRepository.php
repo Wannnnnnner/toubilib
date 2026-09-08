@@ -1,5 +1,5 @@
 <?php
-namespace jira\adapters\persistence;
+namespace toubilib\adapters\persistence;
 
 use Ramsey\Uuid\Uuid;
 use jira\domain\entities\Owner;

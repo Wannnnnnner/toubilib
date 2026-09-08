@@ -1,5 +1,5 @@
 <?php
-namespace jira\application\usecases;
+namespace toubilib\application\usecases;
 
 use jira\application\dtos\UpdateUserStoryDTO;
 use Ramsey\Uuid\Uuid;

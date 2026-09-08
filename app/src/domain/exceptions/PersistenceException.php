@@ -1,5 +1,5 @@
 <?php
-namespace jira\domain\exceptions;
+namespace toubilib\domain\exceptions;
 
 class PersistenceException extends \RuntimeException { 
     

@@ -1,5 +1,5 @@
 <?php
-namespace jira\domain\entities;
+namespace toubilib\domain\entities;
 
 enum UserStoryStatus: string {
     case TODO = 'TODO';

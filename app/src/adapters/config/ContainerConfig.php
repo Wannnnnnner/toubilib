@@ -1,5 +1,5 @@
 <?php
-namespace jira\adapters\config;
+namespace toubilib\adapters\config;
 
 use DI\ContainerBuilder;
 use Psr\Container\ContainerInterface;

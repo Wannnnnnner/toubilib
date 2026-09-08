@@ -1,5 +1,5 @@
 <?php
-namespace jira\application\exceptions;
+namespace toubilib\application\exceptions;
 
 class ValidationException extends \DomainException {
     private array $errors;

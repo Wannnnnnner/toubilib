@@ -1,5 +1,5 @@
 <?php
-namespace jira\adapters\persistence;
+namespace toubilib\adapters\persistence;
 
 use jira\domain\exceptions\PersistenceException;
 

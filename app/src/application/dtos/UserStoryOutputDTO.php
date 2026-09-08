@@ -1,5 +1,5 @@
 <?php
-namespace jira\application\dtos;
+namespace toubilib\application\dtos;
 
 use jira\domain\entities\UserStory;
 
