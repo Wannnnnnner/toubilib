@@ -1,4 +1,4 @@
-# jira
+# toubilib
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://gitlab.univ-lorraine.fr/perrin15/jira.git
+git remote add origin https://gitlab.univ-lorraine.fr/perrin15/toubilib.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.univ-lorraine.fr/perrin15/jira/-/settings/integrations)
+- [ ] [Set up project integrations](https://gitlab.univ-lorraine.fr/perrin15/toubilib/-/settings/integrations)
 
 ## Collaborate with your team
 

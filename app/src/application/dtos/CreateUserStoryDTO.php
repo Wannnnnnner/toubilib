@@ -1,7 +1,7 @@
 <?php
 namespace toubilib\application\dtos;
 
-use jira\application\exceptions\ValidationException;
+use toubilib\application\exceptions\ValidationException;
 
 final class CreateUserStoryDTO {
 

@@ -1,31 +1,31 @@
 networks:
-  jirahexa.net:
+  toubilibhexa.net:
     driver: bridge
 
 services:
 
   #
   # service 
-  api.jirahexa:
+  api.toubilibhexa:
     image: 'operrin/php:8.5.6'
-    env_file: ./jira.env
+    env_file: ./toubilib.env
     ports:
       - '6080:80'
     volumes:
       - ./app:/var/php
     working_dir: /var/php
     networks:
-      - jirahexa.net
+      - toubilibhexa.net
     depends_on:
-      jira.db:
+      toubilib.db:
         condition: service_healthy
     entrypoint: ["/bin/sh", "-c", "composer install --no-interaction && php -S 0.0.0.0:80 -t /var/php/public"]
 
   #
   # service db : base de données postgresql
-  jira.db:
+  toubilib.db:
     image: 'postgres:18.3'
-    env_file: ./jiradb.env
+    env_file: ./toubilibdb.env
     ports:
       - '5432:5432'
     healthcheck:
@@ -34,7 +34,7 @@ services:
       timeout: 5s
       retries: 5 
     networks:
-      - jirahexa.net
+      - toubilibhexa.net
     volumes:
       - ./app/sql:/var/lib/postgresql
 
@@ -45,7 +45,7 @@ services:
     ports:
       - '8080:8080'
     networks:
-      - jirahexa.net
+      - toubilibhexa.net
 
   #
   # composer
@@ -53,9 +53,9 @@ services:
 #    image: composer:2.10.1
 #    command: ["composer", "install"]
 #    networks:
-#      - jirahexa.net
+#      - toubilibhexa.net
 #    volumes:
 #      - ./app:/app
 #    depends_on:
-#      - api.jirahexa
+#      - api.toubilibhexa
 

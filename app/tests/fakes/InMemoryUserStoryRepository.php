@@ -1,9 +1,9 @@
 <?php
 namespace tests\fakes;
 
-use jira\domain\entities\UserStory;
-use jira\domain\exceptions\UserStoryNotFoundException;
-use jira\application\ports\spi\UserStoryRepository;
+use toubilib\domain\entities\UserStory;
+use toubilib\domain\exceptions\UserStoryNotFoundException;
+use toubilib\application\ports\spi\UserStoryRepository;
 
 class InMemoryUserStoryRepository implements UserStoryRepository {
 

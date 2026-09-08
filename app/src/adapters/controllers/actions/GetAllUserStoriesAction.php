@@ -4,8 +4,8 @@ namespace toubilib\adapters\controllers\actions;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-use jira\application\ports\api\UserStoryServiceInterface;
-use jira\application\dtos\UserStoryOutputDTO;
+use toubilib\application\ports\api\UserStoryServiceInterface;
+use toubilib\application\dtos\UserStoryOutputDTO;
 
 class GetAllUserStoriesAction extends AbstractAction {
     

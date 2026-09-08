@@ -4,13 +4,13 @@ namespace toubilib\adapters\config;
 use DI\ContainerBuilder;
 use Psr\Container\ContainerInterface;
 
-use jira\application\usecases\UserStoryService;
-use jira\application\ports\api\UserStoryServiceInterface;
-use jira\application\ports\spi\OwnerRepository;
-use jira\application\ports\spi\UserStoryRepository;
-use jira\adapters\persistence\PgUserStoryRepository;
-use jira\adapters\persistence\PgOwnerRepository;
-use jira\application\validators\CreateUserStoryValidator;
+use toubilib\application\usecases\UserStoryService;
+use toubilib\application\ports\api\UserStoryServiceInterface;
+use toubilib\application\ports\spi\OwnerRepository;
+use toubilib\application\ports\spi\UserStoryRepository;
+use toubilib\adapters\persistence\PgUserStoryRepository;
+use toubilib\adapters\persistence\PgOwnerRepository;
+use toubilib\application\validators\CreateUserStoryValidator;
 
 final class ContainerConfig {
 
@@ -26,8 +26,8 @@ final class ContainerConfig {
                 ->constructor(\DI\get(OwnerRepository::class)),
 
             // ── adapters ─
-            'jira.pdo' => function (ContainerInterface $c) {
-                //$config = parse_ini_file(__DIR__ . '/../../../config/jira.db.ini');
+            'toubilib.pdo' => function (ContainerInterface $c) {
+                //$config = parse_ini_file(__DIR__ . '/../../../config/toubilib.db.ini');
                 $dsn = "{$_ENV['DRIVER']}:host={$_ENV['HOST']};dbname={$_ENV['DATABASE']}";
                 $user = $_ENV['USERNAME'];
                 $password = $_ENV['PASSWORD'];
@@ -35,10 +35,10 @@ final class ContainerConfig {
             },
 
             UserStoryRepository::class => \DI\create(PgUserStoryRepository::class)
-                ->constructor(\DI\get('jira.pdo')),
+                ->constructor(\DI\get('toubilib.pdo')),
 
             OwnerRepository::class => \DI\create(PgOwnerRepository::class)
-                ->constructor(\DI\get('jira.pdo')),
+                ->constructor(\DI\get('toubilib.pdo')),
         ]);
         return $builder->build();
     }

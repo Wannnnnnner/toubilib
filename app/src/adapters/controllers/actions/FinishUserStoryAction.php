@@ -6,9 +6,9 @@ use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpNotFoundException;
 use Slim\Exception\HttpBadRequestException;
 
-use jira\domain\exceptions\UserStoryNotFoundException;
-use jira\domain\exceptions\StatusChangeNotAllowedException;
-use jira\application\ports\api\UserStoryServiceInterface;
+use toubilib\domain\exceptions\UserStoryNotFoundException;
+use toubilib\domain\exceptions\StatusChangeNotAllowedException;
+use toubilib\application\ports\api\UserStoryServiceInterface;
 
 class FinishUserStoryAction extends AbstractAction {
 

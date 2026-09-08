@@ -3,12 +3,12 @@
 use Slim\Psr7\Factory\ServerRequestFactory;
 use Slim\Psr7\Response;
 use tests\fakes\InMemoryUserStoryRepository;
-use jira\application\usecases\UserStoryService;
-use jira\domain\entities\UserStory;
-use jira\domain\entities\UserStoryStatus;
-use jira\domain\entities\Owner;
-use jira\adapters\controllers\actions\PatchUserStoryAction;
-use jira\application\validators\CreateUserStoryValidator;
+use toubilib\application\usecases\UserStoryService;
+use toubilib\domain\entities\UserStory;
+use toubilib\domain\entities\UserStoryStatus;
+use toubilib\domain\entities\Owner;
+use toubilib\adapters\controllers\actions\PatchUserStoryAction;
+use toubilib\application\validators\CreateUserStoryValidator;
 
 // ── Setup ─
 function makeFakeUserStory(string $id = 'f47ac10b-58cc-4372-a567-0e02b2c3d479'): UserStory {
@@ -27,8 +27,8 @@ function makeFakeAction(array $existingStories = []): PatchUserStoryAction {
     foreach ($existingStories as $story) {
         $repository->save($story);
     }
-    $ownerRepository = new class implements \jira\application\ports\spi\OwnerRepository {
-        public function findById(string $id): ?\jira\domain\entities\Owner { return null; }
+    $ownerRepository = new class implements \toubilib\application\ports\spi\OwnerRepository {
+        public function findById(string $id): ?\toubilib\domain\entities\Owner { return null; }
     };
     $validator = new CreateUserStoryValidator($ownerRepository);
     $service = new UserStoryService($repository, $ownerRepository, $validator);

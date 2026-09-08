@@ -1,9 +1,9 @@
 <?php
 namespace toubilib\application\ports\api;
 
-use jira\application\dtos\CreateUserStoryDTO;
-use jira\application\dtos\UpdateUserStoryDTO;
-use jira\application\dtos\UserStoryOutputDTO;
+use toubilib\application\dtos\CreateUserStoryDTO;
+use toubilib\application\dtos\UpdateUserStoryDTO;
+use toubilib\application\dtos\UserStoryOutputDTO;
 
 interface UserStoryServiceInterface {
 

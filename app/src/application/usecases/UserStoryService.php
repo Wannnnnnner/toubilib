@@ -1,17 +1,17 @@
 <?php
 namespace toubilib\application\usecases;
 
-use jira\application\dtos\UpdateUserStoryDTO;
+use toubilib\application\dtos\UpdateUserStoryDTO;
 use Ramsey\Uuid\Uuid;
-use jira\domain\entities\UserStoryStatus;
-use jira\domain\entities\UserStory;
-use jira\application\ports\api\UserStoryServiceInterface;
-use jira\application\ports\spi\UserStoryRepository;
-use jira\application\ports\spi\OwnerRepository;
-use jira\application\dtos\UserStoryOutputDTO;
-use jira\application\dtos\CreateUserStoryDTO;
-use jira\application\validators\CreateUserStoryValidator;
-use jira\application\exceptions\ValidationException;
+use toubilib\domain\entities\UserStoryStatus;
+use toubilib\domain\entities\UserStory;
+use toubilib\application\ports\api\UserStoryServiceInterface;
+use toubilib\application\ports\spi\UserStoryRepository;
+use toubilib\application\ports\spi\OwnerRepository;
+use toubilib\application\dtos\UserStoryOutputDTO;
+use toubilib\application\dtos\CreateUserStoryDTO;
+use toubilib\application\validators\CreateUserStoryValidator;
+use toubilib\application\exceptions\ValidationException;
 
 class UserStoryService implements UserStoryServiceInterface {
 

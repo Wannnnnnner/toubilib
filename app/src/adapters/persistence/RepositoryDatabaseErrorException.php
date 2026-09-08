@@ -1,7 +1,7 @@
 <?php
 namespace toubilib\adapters\persistence;
 
-use jira\domain\exceptions\PersistenceException;
+use toubilib\domain\exceptions\PersistenceException;
 
 class RepositoryDatabaseErrorException extends PersistenceException {
     

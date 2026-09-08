@@ -1,7 +1,7 @@
 <?php
 
-use jira\application\dtos\UpdateUserStoryDTO;
-use jira\application\exceptions\ValidationException;
+use toubilib\application\dtos\UpdateUserStoryDTO;
+use toubilib\application\exceptions\ValidationException;
 
 // ── Tests ─
 it('should trim the provided values', function () {

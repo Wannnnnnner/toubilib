@@ -1,8 +1,8 @@
 <?php
 namespace toubilib\adapters\persistence;
 
-use jira\domain\entities\Owner;
-use jira\application\ports\spi\OwnerRepository;
+use toubilib\domain\entities\Owner;
+use toubilib\application\ports\spi\OwnerRepository;
 
 class PgOwnerRepository implements OwnerRepository {
 

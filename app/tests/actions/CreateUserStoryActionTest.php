@@ -4,10 +4,10 @@ use Slim\Psr7\Factory\RequestFactory;
 use Slim\Psr7\Factory\ResponseFactory;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use jira\application\usecases\UserStoryService;
-use jira\application\validators\CreateUserStoryValidator;
-use jira\domain\entities\Owner;
-use jira\adapters\controllers\actions\CreateUserStoryAction;
+use toubilib\application\usecases\UserStoryService;
+use toubilib\application\validators\CreateUserStoryValidator;
+use toubilib\domain\entities\Owner;
+use toubilib\adapters\controllers\actions\CreateUserStoryAction;
 use tests\fakes\InMemoryUserStoryRepository;
 use tests\fakes\InMemoryOwnerRepository;
 

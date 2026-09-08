@@ -1,10 +1,10 @@
 <?php
 namespace toubilib\application\validators;
 
-use jira\domain\entities\Owner;
-use jira\application\dtos\CreateUserStoryDTO;
-use jira\application\exceptions\ValidationException;
-use jira\application\ports\spi\OwnerRepository;
+use toubilib\domain\entities\Owner;
+use toubilib\application\dtos\CreateUserStoryDTO;
+use toubilib\application\exceptions\ValidationException;
+use toubilib\application\ports\spi\OwnerRepository;
 
 class CreateUserStoryValidator {
 

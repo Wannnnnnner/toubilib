@@ -2,12 +2,12 @@
 namespace toubilib\adapters\persistence;
 
 use Ramsey\Uuid\Uuid;
-use jira\domain\entities\Owner;
-use jira\domain\entities\UserStory;
-use jira\domain\entities\UserStoryStatus;
-use jira\domain\exceptions\UserStoryNotFoundException;
-use jira\application\ports\spi\UserStoryRepository;
-use jira\adapters\persistence\RepositoryDatabaseErrorException;
+use toubilib\domain\entities\Owner;
+use toubilib\domain\entities\UserStory;
+use toubilib\domain\entities\UserStoryStatus;
+use toubilib\domain\exceptions\UserStoryNotFoundException;
+use toubilib\application\ports\spi\UserStoryRepository;
+use toubilib\adapters\persistence\RepositoryDatabaseErrorException;
 
 class PgUserStoryRepository implements UserStoryRepository {
 

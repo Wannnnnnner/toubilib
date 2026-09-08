@@ -2,7 +2,7 @@
 namespace toubilib\domain\entities;
 
 use Ramsey\Uuid\Uuid;
-use jira\domain\exceptions\StatusChangeNotAllowedException;
+use toubilib\domain\exceptions\StatusChangeNotAllowedException;
 
 class UserStory {
     private string $id;

@@ -1,7 +1,7 @@
 <?php
 namespace toubilib\application\dtos;
 
-use jira\domain\entities\UserStory;
+use toubilib\domain\entities\UserStory;
 
 final class UserStoryOutputDTO {
      

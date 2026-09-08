@@ -2,12 +2,12 @@
 
 use Slim\Psr7\Factory\RequestFactory;
 use Slim\Psr7\Factory\ResponseFactory;
-use jira\domain\entities\UserStory;
-use jira\domain\entities\Owner;
-use jira\domain\entities\UserStoryStatus;
-use jira\adapters\controllers\actions\GetUserStoryByIdAction;
-use jira\application\usecases\UserStoryService;
-use jira\application\validators\CreateUserStoryValidator;
+use toubilib\domain\entities\UserStory;
+use toubilib\domain\entities\Owner;
+use toubilib\domain\entities\UserStoryStatus;
+use toubilib\adapters\controllers\actions\GetUserStoryByIdAction;
+use toubilib\application\usecases\UserStoryService;
+use toubilib\application\validators\CreateUserStoryValidator;
 use tests\fakes\InMemoryUserStoryRepository;
 use tests\fakes\InMemoryOwnerRepository;
 

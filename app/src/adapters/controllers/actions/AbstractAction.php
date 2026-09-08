@@ -4,7 +4,7 @@ namespace toubilib\adapters\controllers\actions;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-use jira\adapters\controllers\middlewares\JsonRenderer;
+use toubilib\adapters\controllers\middlewares\JsonRenderer;
 
 abstract class AbstractAction {
 

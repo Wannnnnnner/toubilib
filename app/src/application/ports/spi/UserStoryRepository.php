@@ -1,7 +1,7 @@
 <?php
 namespace toubilib\application\ports\spi;
 
-use jira\domain\entities\UserStory;
+use toubilib\domain\entities\UserStory;
 
 interface UserStoryRepository {
 

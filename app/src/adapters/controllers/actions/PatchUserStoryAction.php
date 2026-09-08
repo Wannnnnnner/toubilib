@@ -5,10 +5,10 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpNotFoundException;
 
-use jira\domain\exceptions\UserStoryNotFoundException;
-use jira\application\dtos\UpdateUserStoryDTO;
-use jira\application\exceptions\ValidationException;
-use jira\application\ports\api\UserStoryServiceInterface;
+use toubilib\domain\exceptions\UserStoryNotFoundException;
+use toubilib\application\dtos\UpdateUserStoryDTO;
+use toubilib\application\exceptions\ValidationException;
+use toubilib\application\ports\api\UserStoryServiceInterface;
 
 class PatchUserStoryAction extends AbstractAction {
 

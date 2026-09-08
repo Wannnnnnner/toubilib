@@ -1,7 +1,7 @@
 <?php
 namespace toubilib\application\ports\spi;
 
-use jira\domain\entities\Owner;
+use toubilib\domain\entities\Owner;
 
 interface OwnerRepository {
 

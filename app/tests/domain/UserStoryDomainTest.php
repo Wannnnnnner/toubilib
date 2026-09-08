@@ -1,9 +1,9 @@
 <?php
 
 use function PHPUnit\Framework\assertEquals;
-use jira\domain\entities\UserStory;
-use jira\domain\entities\UserStoryStatus;
-use jira\domain\exceptions\StatusChangeNotAllowedException;
+use toubilib\domain\entities\UserStory;
+use toubilib\domain\entities\UserStoryStatus;
+use toubilib\domain\exceptions\StatusChangeNotAllowedException;
 
 // ── Tests ─
 it("should create a user story with status TODO", function() {

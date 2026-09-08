@@ -6,10 +6,10 @@ use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpBadRequestException;
 use Slim\Exception\HttpNotFoundException;
 
-use jira\domain\entities\UserStoryStatus;
-use jira\domain\exceptions\StatusChangeNotAllowedException;
-use jira\domain\exceptions\UserStoryNotFoundException;
-use jira\application\ports\api\UserStoryServiceInterface;
+use toubilib\domain\entities\UserStoryStatus;
+use toubilib\domain\exceptions\StatusChangeNotAllowedException;
+use toubilib\domain\exceptions\UserStoryNotFoundException;
+use toubilib\application\ports\api\UserStoryServiceInterface;
 
 class ChangeStatusAction extends AbstractAction {
     

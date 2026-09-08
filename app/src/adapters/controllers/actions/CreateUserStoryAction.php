@@ -5,11 +5,11 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Slim\Exception\HttpInternalServerErrorException;
 
-use jira\domain\exceptions\PersistenceException;
-use jira\application\exceptions\ValidationException;
-use jira\application\ports\api\UserStoryServiceInterface;
-use jira\application\dtos\CreateUserStoryDTO;
-use jira\application\validators\CreateUserStoryValidator;
+use toubilib\domain\exceptions\PersistenceException;
+use toubilib\application\exceptions\ValidationException;
+use toubilib\application\ports\api\UserStoryServiceInterface;
+use toubilib\application\dtos\CreateUserStoryDTO;
+use toubilib\application\validators\CreateUserStoryValidator;
 
 class CreateUserStoryAction extends AbstractAction {
 
