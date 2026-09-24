@@ -9,11 +9,15 @@ use toubilib\application\ports\api\RendezVousServiceInterface;
 use toubilib\application\ports\spi\RendezVousRepositoryInterface;
 use toubilib\domain\entities\RendezVous;
 use toubilib\application\dtos\CreateRdvDTO;
+use toubilib\application\validator\CreateRdvValidator;
+use toubilib\domain\entities\RendezVousStatus;
 
 final class RendezVousService implements RendezVousServiceInterface
 {
     public function __construct(
+        private CreateRdvValidator $validator,
         private readonly RendezVousRepositoryInterface $repository,
+
     ) {
     }
 
@@ -36,15 +40,14 @@ final class RendezVousService implements RendezVousServiceInterface
         try {
             $rendezVousValider = $this->validator->validate($rendezVous);
         } catch (ValidationException $e) {
-            throw new \DomainException("Owner {$rendezVous->ownerId} can not be found.");
+            throw new \DomainException("Owner can not be found.");
         }
-        $userStory = new UserStory(
+        $rendezVous = new RendezVous(
             id: Uuid::uuid4()->toString(),
-            title: $rendezVous->title,
-            description: $rendezVous->description,
-            status: UserStoryStatus::TODO
+            dateHeureDebut: $rendezVous->DateHeure,
+            status: RendezVousStatus::PLANIFIE
         );
-        $this->userStoryRepository->save($userStory);
-        return UserStoryOutputDTO::fromEntity($userStory);
+        $this->RendezVousRepository->save($rendezVous);
+        return $rendezVous;
     }
 }

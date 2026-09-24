@@ -1,9 +1,9 @@
 <?php
-namespace toubilib\application\validators;
+namespace toubilib\application\validator;
 
 use toubilib\application\dtos\CreateRdvDTO;
 
-class CreateUserStoryValidator
+class CreateRdvValidator
 {
 
     public function __construct(
