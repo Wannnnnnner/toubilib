@@ -25,7 +25,7 @@ final class AnnulerRendezVous implements AnnulerRendezVousInterface
         }
 
         $rendezVous->annuler();
-        $this->repository->save($rendezVous);
+        $this->repository->update($rendezVous);
 
         return $rendezVous;
     }

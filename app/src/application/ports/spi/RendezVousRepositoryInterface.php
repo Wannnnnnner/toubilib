@@ -11,4 +11,6 @@ interface RendezVousRepositoryInterface
     public function findById(string $rendezVousId): ?RendezVous;
 
     public function save(RendezVous $rendezVous): void;
+    
+    public function update(RendezVous $rendezVous): void;
 }
