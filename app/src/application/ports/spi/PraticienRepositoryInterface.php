@@ -10,7 +10,4 @@ interface PraticienRepositoryInterface
 {
     public function findById(string $praticien): ?Praticien;
 
-    public function save(Praticien $praticien): void;
-
-    public function update(Praticien $praticien): void;
 }

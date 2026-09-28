@@ -10,7 +10,4 @@ interface PatientRepositoryInterface
 {
     public function findById(string $patient): ?Patient;
 
-    public function save(Patient $patient): void;
-
-    public function update(Patient $patient): void;
 }
