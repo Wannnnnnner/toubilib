@@ -9,11 +9,19 @@ use toubilib\domain\exceptions\AnnulationRendezVousImpossible;
 
 class RendezVous
 {
+    private readonly DateTimeImmutable $dateHeureFin;
+
     public function __construct(
         private readonly string $id,
+        private readonly string $praticienId,
+        private readonly string $patientId,
         private readonly DateTimeImmutable $dateHeureDebut,
+        private readonly int $duree = 30,
+        private readonly string $motifVisite,
+        private readonly DateTimeImmutable $dateCreation = new DateTimeImmutable(),
         private RendezVousStatus $status = RendezVousStatus::PLANIFIE,
     ) {
+        $this->dateHeureFin = $dateHeureDebut->modify('+' . $duree . ' minutes');
     }
 
     public function annuler(?DateTimeImmutable $maintenant = null): void
@@ -38,9 +46,39 @@ class RendezVous
         return $this->id;
     }
 
+    public function getPraticienId(): string
+    {
+        return $this->praticienId;
+    }
+
+    public function getPatientId(): string
+    {
+        return $this->patientId;
+    }
+
     public function getDateHeureDebut(): DateTimeImmutable
     {
         return $this->dateHeureDebut;
+    }
+
+    public function getDateHeureFin(): DateTimeImmutable
+    {
+        return $this->dateHeureFin;
+    }
+
+    public function getDuree(): int
+    {
+        return $this->duree;
+    }
+
+    public function getMotifVisite(): string
+    {
+        return $this->motifVisite;
+    }
+
+    public function getDateCreation(): DateTimeImmutable
+    {
+        return $this->dateCreation;
     }
 
     public function getStatus(): RendezVousStatus
