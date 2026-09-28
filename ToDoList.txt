@@ -1,0 +1,7 @@
+Ceci est une liste des choses à faire:
+- Faire la methode findById de PatientRepository
+- Faire la methode findById de PraticienRepository
+- Finir les méthodes dans CreateRdvValidator
+- Faire les entités Patient et Praticien 
+- Ecrire la méthode chevauche dans Praticien
+- Retracer le chemin de annulerRDV (il doit manquer des liaisons)
