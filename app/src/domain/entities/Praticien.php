@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace toubilib\domain\entities;
 
+use toubilib\domain\entities\RendezVous;
+
 class Praticien
 {
 
@@ -19,6 +21,8 @@ class Praticien
     private string $rppsId;
     private string $titre;
     private bool $accepteNouveauPatient;
+
+    private array $rdvs;
 
     public function __construct(
         string $id,
@@ -40,6 +44,17 @@ class Praticien
         $this->rppsId = $rppsId;
         $this->titre = $titre;
         $this->accepteNouveauPatient = $accepteNouveauPatient;
+    }
+
+public function estDisponible(RendezVous $rdv): bool
+    {
+        foreach ($this->rdvs as $r) {
+            if ($rdv->getDateHeureDebut() < $r->getDateHeureFin() or $rdv->getDateHeureFin() > $r->getDateHeureDebut()) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     public function getId(): string
