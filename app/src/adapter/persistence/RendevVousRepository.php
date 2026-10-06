@@ -7,6 +7,7 @@ use toubilib\application\ports\spi\RendezVousRepositoryInterface;
 use toubilib\domain\entities\RendezVousStatus;
 use toubilib\domain\exceptions\RendezVousNotFoundException;
 use toubilib\adapters\persistence\RepositoryDatabaseErrorException;
+use DateTimeImmutable;
 
 class RendezVousRepository implements RendezVousRepositoryInterface
 {
@@ -31,7 +32,15 @@ class RendezVousRepository implements RendezVousRepositoryInterface
         if (!$row) {
             throw new RendezVousNotFoundException("Rendez-vous avec l'id : $rendezVousId n'a pas été trouvé");
         }
-        $rendezVous = new RendezVous($row['id'], $row['praticien_id'], $row['patient_id'], $row['date_heure_debut'], $row['duree'], $row['date_creation'], $row['motif_visite'], RendezVousStatus::from($row['status']));
+        $rendezVous = new RendezVous(
+            id: $row['id'],
+            praticienId: $row['praticien_id'],
+            patientId: $row['patient_id'],
+            dateHeureDebut: new DateTimeImmutable($row['date_heure_debut']),
+            motifVisite: $row['motif_visite'],
+            dateCreation: new DateTimeImmutable($row['date_creation']),
+            status: RendezVousStatus::from($row['status']),
+        );
         return $rendezVous;
     }
 
