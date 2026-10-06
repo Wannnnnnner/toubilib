@@ -5,6 +5,7 @@ use Ramsey\Uuid\Uuid;
 use toubilib\application\ports\spi\PraticienRepositoryInterface;
 use toubilib\domain\entities\Praticien;
 use toubilib\adapters\persistence\RepositoryDatabaseErrorException;
+use toubilib\domain\exceptions\PraticienNotFoundException;
 
 class PraticienRepository implements PraticienRepositoryInterface
 {
@@ -19,18 +20,18 @@ class PraticienRepository implements PraticienRepositoryInterface
     public function findById(string $praticienId): ?Praticien
     {
         if (!Uuid::isValid($praticienId)) {
-            throw new PraticienNotFoundException("Patient avec l'id : $praticienId n'a pas été trouvé");
+            throw new PraticienNotFoundException("Praticien avec l'id : $praticienId n'a pas été trouvé");
         }
-        $stmt = $this->pdo->prepare("SELECT nom, prenom, date_naissance, adresse, code_postal, ville, email, telephone
-                                     FROM patient
-                                     WHERE id = :patientId");
-        $stmt->execute(['patientId' => $patientId]);
+        $stmt = $this->pdo->prepare("SELECT nom, prenom, ville, email, telephone, rppsId, titre, accepteNouveauPatient
+                                     FROM praticien
+                                     WHERE id = :praticienId");
+        $stmt->execute(['praticienId' => $praticienId]);
         $row = $stmt->fetch();
         if (!$row) {
-            throw new PatientNotFoundException("Patient avec l'id : $patientId n'a pas été trouvé");
+            throw new PraticienNotFoundException("praticien avec l'id : $praticienId n'a pas été trouvé");
         }
-        $rendezVous = new Patient($patientId, $row['nom'], $row['prenom'], $row['date_naissance'], $row['adresse'], $row['code_postal'], $row['ville'], $row['email'], $row['telephone']);
-        return $rendezVous;
+        $praticien = new Praticien($praticienId, $row['nom'], $row['prenom'], $row['ville'], $row['email'], $row['telephone'], $row['rppsId'], $row['titre'], $row['$accepteNouveauPatient']);
+        return $praticien;
     }
 
 

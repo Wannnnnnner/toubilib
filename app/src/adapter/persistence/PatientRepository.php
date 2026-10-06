@@ -30,8 +30,8 @@ class PatientRepository implements PatientRepositoryInterface
         if (!$row) {
             throw new PatientNotFoundException("Patient avec l'id : $patientId n'a pas été trouvé");
         }
-        $rendezVous = new Patient($patientId, $row['nom'], $row['prenom'], $row['date_naissance'], $row['adresse'], $row['code_postal'], $row['ville'], $row['email'], $row['telephone']);
-        return $rendezVous;
+        $patient = new Patient($patientId, $row['nom'], $row['prenom'], $row['date_naissance'], $row['adresse'], $row['code_postal'], $row['ville'], $row['email'], $row['telephone']);
+        return $patient;
     }
 
 
