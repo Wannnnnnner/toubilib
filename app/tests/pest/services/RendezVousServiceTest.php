@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace toubilib\tests;
+namespace tests\pest\services;
 
 use PHPUnit\Framework\TestCase;
 use toubilib\application\dtos\CreateRdvDTO;
@@ -17,13 +17,12 @@ final class RendezVousServiceTest extends TestCase
 {
     private function makeDto(): CreateRdvDTO
     {
-        // Adapte les arguments au constructeur réel de ton CreateRdvDTO
-        return new CreateRdvDTO(
-            idMedecin: 'medecin-1',
-            idPatient: 'patient-1',
-            dateHeure: new \DateTimeImmutable('2026-10-20 10:00:00'),
-            motif: 'Consultation de contrôle',
-        );
+        return CreateRdvDTO::fromArray([
+            'idPatient' => 'patient-1',
+            'idMedecin' => 'medecin-1',
+            'Motif' => 'Consultation de contrôle',
+            'DateHeure' => '2026-10-20 10:00:00',
+        ]);
     }
 
     public function testCreateRdvEnregistreEtRetourneUnDto(): void

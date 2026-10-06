@@ -16,8 +16,8 @@ class RendezVous
         private readonly string $praticienId,
         private readonly string $patientId,
         private readonly DateTimeImmutable $dateHeureDebut,
-        private readonly int $duree = 30,
         private readonly string $motifVisite,
+        private readonly int $duree = 30,
         private readonly DateTimeImmutable $dateCreation = new DateTimeImmutable(),
         private RendezVousStatus $status = RendezVousStatus::PLANIFIE,
     ) {
