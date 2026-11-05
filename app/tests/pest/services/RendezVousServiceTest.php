@@ -20,7 +20,7 @@ final class RendezVousServiceTest extends TestCase
         return CreateRdvDTO::fromArray([
             'idPatient' => 'patient-1',
             'idMedecin' => 'medecin-1',
-            'Motif' => 'Consultation de contrôle',
+            'Motif' => 'CI',
             'DateHeure' => '2026-10-20 10:00:00',
         ]);
     }

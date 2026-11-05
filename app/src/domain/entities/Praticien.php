@@ -22,7 +22,8 @@ class Praticien
     private string $titre;
     private bool $accepteNouveauPatient;
 
-    private array $rdvs;
+    /** @var list<RendezVous> */
+    private array $rdvs = [];
 
     public function __construct(
         string $id,
@@ -49,12 +50,17 @@ class Praticien
 public function estDisponible(RendezVous $rdv): bool
     {
         foreach ($this->rdvs as $r) {
-            if ($rdv->getDateHeureDebut() < $r->getDateHeureFin() or $rdv->getDateHeureFin() > $r->getDateHeureDebut()) {
+            if ($r->chevauche($rdv)) {
                 return false;
             }
         }
 
         return true;
+    }
+
+    public function ajouterRendezVous(RendezVous $rdv): void
+    {
+        $this->rdvs[] = $rdv;
     }
 
     public function getId(): string

@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace toubilib\domain\entities;
 
 use DateTimeImmutable;
+use InvalidArgumentException;
 use toubilib\domain\exceptions\AnnulationRendezVousImpossible;
 
 class RendezVous
 {
     private readonly DateTimeImmutable $dateHeureFin;
+    private readonly int $duree;
 
     public function __construct(
         private readonly string $id,
@@ -17,11 +19,16 @@ class RendezVous
         private readonly string $patientId,
         private readonly DateTimeImmutable $dateHeureDebut,
         private readonly string $motifVisite,
-        private readonly int $duree = 30,
         private readonly DateTimeImmutable $dateCreation = new DateTimeImmutable(),
         private RendezVousStatus $status = RendezVousStatus::PLANIFIE,
     ) {
-        $this->dateHeureFin = $dateHeureDebut->modify('+' . $duree . ' minutes');
+        $this->duree = match ($motifVisite) {
+            'CI' => 30,
+            'C0' => 20,
+            'CS' => 15,
+            default => throw new InvalidArgumentException("Motif de visite invalide : $motifVisite"),
+        };
+        $this->dateHeureFin = $dateHeureDebut->modify('+' . $this->duree . ' minutes');
     }
 
     public function annuler(?DateTimeImmutable $maintenant = null): void
@@ -39,6 +46,12 @@ class RendezVous
         }
 
         $this->status = RendezVousStatus::ANNULE;
+    }
+
+    public function chevauche(RendezVous $r): bool
+    {
+        return $this->dateHeureDebut < $r->dateHeureFin
+            && $this->dateHeureFin > $r->dateHeureDebut;
     }
 
     public function getId(): string

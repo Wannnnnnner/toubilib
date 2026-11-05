@@ -36,6 +36,10 @@ class CreateRdvDTO
             throw new ValidationException('Données de création de rendez-vous invalides.', 0, $e);
         }
 
+        if (!in_array($data['Motif'], ['CI', 'C0', 'CS'], true)) {
+            throw new ValidationException('Le motif doit être CI, C0 ou CS.');
+        }
+
         // Sanitization du motif
         if (isset($data['Motif'])) {
             $data['Motif'] = filter_var($data['Motif'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);

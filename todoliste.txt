@@ -1,5 +1,3 @@
-getduree rdv voire avec le motif
-synde la methode chevaucher dans rdv 
 jour off du medecin
 charger agneda jour
 lancer la methode est dispo dans le service + creation d'entit si valide
