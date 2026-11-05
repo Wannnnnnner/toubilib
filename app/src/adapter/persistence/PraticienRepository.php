@@ -34,5 +34,29 @@ class PraticienRepository implements PraticienRepositoryInterface
         return $praticien;
     }
 
+    public function findAll(): array
+    {
+        $sql = 'SELECT id, nom, prenom, ville, email, telephone, rpps_id, titre,
+                   nouveau_patient::int AS nouveau_patient
+            FROM praticien
+            ORDER BY nom, prenom';
+
+        $praticiens = [];
+        foreach ($this->pdo->query($sql, \PDO::FETCH_ASSOC) as $row) {
+            $praticiens[] = new Praticien(
+                $row['id'],
+                $row['nom'],
+                $row['prenom'],
+                $row['ville'],
+                $row['email'],
+                $row['telephone'],
+                $row['rpps_id'] ?? '',
+                $row['titre'],
+                (bool) $row['nouveau_patient']
+            );
+        }
+        return $praticiens;
+    }
+
 
 }
