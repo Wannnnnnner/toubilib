@@ -9,9 +9,9 @@ use toubilib\domain\entities\RendezVous;
 class Praticien
 {
 
-    public const JOUR_DE_TRAVAIL = [1,2,3,4,5];
+    public const JOUR_DE_TRAVAIL = [1, 2, 3, 4, 5];
 
-    
+
     private string $id;
     private string $nom;
     private string $prenom;
@@ -47,7 +47,7 @@ class Praticien
         $this->accepteNouveauPatient = $accepteNouveauPatient;
     }
 
-public function estDisponible(RendezVous $rdv): bool
+    public function estDisponible(RendezVous $rdv): bool
     {
         foreach ($this->rdvs as $r) {
             if ($r->chevauche($rdv)) {
