@@ -1,10 +1,10 @@
 <?php
-namespace toubilib\adapters\persistence;
+namespace toubilib\adapter\persistence;
 
 use Ramsey\Uuid\Uuid;
 use toubilib\application\ports\spi\PraticienRepositoryInterface;
 use toubilib\domain\entities\Praticien;
-use toubilib\adapters\persistence\RepositoryDatabaseErrorException;
+use toubilib\adapter\persistence\RepositoryDatabaseErrorException;
 use toubilib\domain\exceptions\PraticienNotFoundException;
 
 class PraticienRepository implements PraticienRepositoryInterface

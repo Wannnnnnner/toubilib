@@ -1,17 +1,18 @@
 <?php
 namespace toubilib\application\validator;
 
-use toubilib\adapters\persistence\PraticienRepository;
 use toubilib\application\dtos\CreateRdvDTO;
-use toubilib\adapters\persistence\PatientRepository;
 use toubilib\application\exceptions\ValidationException;
+use toubilib\application\ports\spi\PatientRepositoryInterface;
+use toubilib\application\ports\spi\PraticienRepositoryInterface;
 
 class CreateRdvValidator
 {
 
+
     public function __construct(
-        private readonly PatientRepository $patientRepository,
-        private readonly PraticienRepository $praticienRepository
+        private readonly PatientRepositoryInterface $patientRepository,
+        private readonly PraticienRepositoryInterface $praticienRepository
     ) {
     }
 

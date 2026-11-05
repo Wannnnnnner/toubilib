@@ -1,10 +1,10 @@
 <?php
-namespace toubilib\adapters\persistence;
+namespace toubilib\adapter\persistence;
 
 use Ramsey\Uuid\Uuid;
 use toubilib\application\ports\spi\PatientRepositoryInterface;
 use toubilib\domain\entities\Patient;
-use toubilib\adapters\persistence\RepositoryDatabaseErrorException;
+use toubilib\adapter\persistence\RepositoryDatabaseErrorException;
 use toubilib\domain\exceptions\PatientNotFoundException;
 
 class PatientRepository implements PatientRepositoryInterface

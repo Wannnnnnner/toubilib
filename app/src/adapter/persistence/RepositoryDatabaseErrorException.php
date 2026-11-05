@@ -1,5 +1,5 @@
 <?php
-namespace toubilib\adapters\persistence;
+namespace toubilib\adapter\persistence;
 
 use toubilib\domain\exceptions\PersistenceException;
 

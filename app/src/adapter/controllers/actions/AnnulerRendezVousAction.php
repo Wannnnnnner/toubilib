@@ -1,9 +1,8 @@
 <?php
-namespace toubilib\adapter\api\actions;
+namespace toubilib\adapter\controllers\actions;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
-use Slim\Exception\HttpBadRequestException;
 use Slim\Exception\HttpNotFoundException;
 use toubilib\application\ports\api\RendezVousServiceInterface;
 

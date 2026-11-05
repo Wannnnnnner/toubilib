@@ -1,12 +1,12 @@
 <?php
-namespace toubilib\adapters\persistence;
+namespace toubilib\adapter\persistence;
 
 use Ramsey\Uuid\Uuid;
 use toubilib\domain\entities\RendezVous;
 use toubilib\application\ports\spi\RendezVousRepositoryInterface;
 use toubilib\domain\entities\RendezVousStatus;
 use toubilib\domain\exceptions\RendezVousNotFoundException;
-use toubilib\adapters\persistence\RepositoryDatabaseErrorException;
+use toubilib\adapter\persistence\RepositoryDatabaseErrorException;
 
 class RendezVousRepository implements RendezVousRepositoryInterface
 {
