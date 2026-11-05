@@ -7,6 +7,10 @@ use toubilib\application\ports\api\RendezVousServiceInterface;
 use toubilib\application\ports\spi\RendezVousRepositoryInterface;
 use toubilib\application\usecases\RendezVousService;
 use toubilib\application\validator\CreateRdvValidator;
+use toubilib\application\ports\api\PraticienServiceInterface;
+use toubilib\application\usecases\PraticienService;
+use toubilib\application\ports\spi\PraticienRepositoryInterface;
+
 
 return [
     'pdo.toubilib' => function (ContainerInterface $c) {
@@ -37,4 +41,9 @@ return [
             $c->get(CreateRdvValidator::class),
             $c->get(RendezVousRepositoryInterface::class)
         ),
+
+    PraticienServiceInterface::class => fn($c) => new PraticienService($c->get(PraticienRepositoryInterface::class)),
+    PraticienRepositoryInterface::class => fn(ContainerInterface $c) =>
+        $c->get(PraticienRepository::class),
+
 ];
