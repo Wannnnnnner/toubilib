@@ -24,17 +24,20 @@ class Praticien
     /** @var list<RendezVous> */
     private array $rdvs = [];
 
+    private ?string $structureId;
+
     public function __construct(
         string $id,
+        string $titre,
         string $nom,
         string $prenom,
         string $ville,
         string $email,
         string $telephone,
         string $rppsId,
-        string $titre,
+        string $structureId,
         bool $accepteNouveauPatient,
-        public readonly Specialite $specialite
+        public readonly ?Specialite $specialite
     ) {
         $this->id = $id;
         $this->nom = $nom;
@@ -45,6 +48,7 @@ class Praticien
         $this->rppsId = $rppsId;
         $this->titre = $titre;
         $this->accepteNouveauPatient = $accepteNouveauPatient;
+        $this->structureId = $structureId;
     }
 
     public function estDisponible(RendezVous $rdv): bool
@@ -106,5 +110,10 @@ class Praticien
     public function accepteNouveauPatient(): bool
     {
         return $this->accepteNouveauPatient;
+    }
+
+    public function getStructureId(): ?string
+    {
+        return $this->structureId;
     }
 }

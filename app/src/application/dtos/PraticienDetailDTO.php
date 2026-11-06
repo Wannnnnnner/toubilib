@@ -34,7 +34,7 @@ class PraticienDetailDTO
             $p->getEmail(),
             $p->getTelephone(),
             $p->getRppsId(),
-            $p->getVille(),
+            $p->getStructureId(),
             $p->accepteNouveauPatient()
         );
     }
