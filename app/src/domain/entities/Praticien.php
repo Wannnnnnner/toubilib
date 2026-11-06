@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace toubilib\domain\entities;
 
-use toubilib\domain\entities\RendezVous;
 
 class Praticien
 {
@@ -34,7 +33,8 @@ class Praticien
         string $telephone,
         string $rppsId,
         string $titre,
-        bool $accepteNouveauPatient
+        bool $accepteNouveauPatient,
+        public readonly Specialite $specialite
     ) {
         $this->id = $id;
         $this->nom = $nom;
