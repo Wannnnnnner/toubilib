@@ -10,7 +10,7 @@ use Slim\Exception\HttpNotFoundException;
 use toubilib\application\ports\api\RendezVousServiceInterface;
 use toubilib\domain\exceptions\RendezVousNotFoundException;
 
-class GetRDVByIdAction
+class GetRDVByIdAction extends AbstractAction
 {
     public function __construct(private RendezVousServiceInterface $serviceRendezVous)
     {
@@ -28,7 +28,7 @@ class GetRDVByIdAction
 
         $links = [
             'self' => ['href' => "/rdvs/$id/"],
-            'praticien' => ['href' => "/praticiens/{$rdv->praticienId}/"],
+            'praticien' => ['href' => "/praticiens/{$rdv->praticienId}"],
         ];
 
         if ($rdv->status === 'PREVU') {

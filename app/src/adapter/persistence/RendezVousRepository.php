@@ -47,20 +47,18 @@ class RendezVousRepository implements RendezVousRepositoryInterface
     public function save(RendezVous $rendezVous): void
     {
         try {
-            $stmt = $this->pdo->prepare('INSERT INTO rdv (id,praticien_id, patient_id,  date_heure_debut, status, duree, date_heure_fin, date_creation, motif_visite) 
-                                              VALUES (:id, :idPrat, :idPatient, :dateHeureDebut, :status, :duree, :datefin, :dateCrea, :motif)
-                                              ON CONFLICT (id) DO UPDATE SET 
-                                              date_heure_debut = EXCLUDED.title, 
-                                              status = EXCLUDED.status');
+            $stmt = $this->pdo->prepare('INSERT INTO rdv (id, praticien_id, patient_id, date_heure_debut, status, duree, date_heure_fin, date_creation, motif_visite)
+                             VALUES (:id, :idPrat, :idPatient, :dateHeureDebut, :status, :duree, :datefin, :dateCrea, :motif)');
+            $fmt = 'Y-m-d H:i:s';
             $stmt->execute([
                 'id' => $rendezVous->getId(),
                 'idPrat' => $rendezVous->getPraticienId(),
                 'idPatient' => $rendezVous->getPatientId(),
-                'dateHeureDebut' => $rendezVous->getDateHeureDebut(),
+                'dateHeureDebut' => $rendezVous->getDateHeureDebut()->format($fmt),
                 'status' => $rendezVous->getStatus()->value,
                 'duree' => $rendezVous->getDuree(),
-                'datefin' => $rendezVous->getDateHeureFin(),
-                'dateCrea' => $rendezVous->getDateCreation(),
+                'datefin' => $rendezVous->getDateHeureFin()?->format($fmt),
+                'dateCrea' => $rendezVous->getDateCreation()?->format($fmt),
                 'motif' => $rendezVous->getMotifVisite(),
             ]);
         } catch (\PDOException $e) {

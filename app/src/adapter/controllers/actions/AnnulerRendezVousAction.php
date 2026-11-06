@@ -6,7 +6,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Exception\HttpNotFoundException;
 use toubilib\application\ports\api\RendezVousServiceInterface;
 
-class AnnulerRendezVousAction
+class AnnulerRendezVousAction extends AbstractAction
 {
 
     public function __construct(private RendezVousServiceInterface $service)

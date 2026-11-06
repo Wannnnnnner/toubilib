@@ -6,7 +6,7 @@ use Slim\Exception\HttpNotFoundException;
 use toubilib\application\ports\api\PraticienServiceInterface;
 use toubilib\domain\exceptions\PraticienNotFoundException;
 
-class GetPraticienByIdAction
+class GetPraticienByIdAction extends AbstractAction
 {
     public function __construct(private PraticienServiceInterface $servicePraticien)
     {

@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use toubilib\application\ports\api\PraticienServiceInterface;
 
-class ListerPraticiensAction
+class ListerPraticiensAction extends AbstractAction
 {
     public function __construct(private PraticienServiceInterface $praticienService)
     {

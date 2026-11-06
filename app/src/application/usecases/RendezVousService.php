@@ -39,23 +39,20 @@ final class RendezVousService implements RendezVousServiceInterface
 
     public function createRdv(CreateRdvDTO $rendezVous): RendezVousDTO
     {
-        try {
-            $rendezVousValider = $this->validator->validate($rendezVous);
-        } catch (ValidationException $e) {
-            throw new \DomainException("Owner can not be found.");
-        }
+        $this->validator->validate($rendezVous); // lève ValidationException (propagée à l'action)
+
         $rdv = new RendezVous(
             id: Uuid::uuid4()->toString(),
             praticienId: $rendezVous->idMedecin,
             patientId: $rendezVous->idPatient,
             dateHeureDebut: $rendezVous->dateHeure,
             motifVisite: $rendezVous->motif,
+            dateCreation: new \DateTimeImmutable(),
             status: RendezVousStatus::PLANIFIE
         );
         $this->repository->save($rdv);
         return RendezVousDTO::fromEntity($rdv);
     }
-
     public function consulterRdv(string $id): RendezVousDTO
     {
         $rdv = $this->repository->findById($id);
