@@ -14,4 +14,6 @@ interface RendezVousServiceInterface
 
     // PS: Changez la sortie pour un DTO
     public function createRdv(CreateRdvDTO $rendezVous): RendezVousDTO;
+
+    public function consulterRdv(string $id): RendezVousDTO;
 }

@@ -55,4 +55,10 @@ final class RendezVousService implements RendezVousServiceInterface
         $this->repository->save($rdv);
         return RendezVousDTO::fromEntity($rdv);
     }
+
+    public function consulterRdv(string $id): RendezVousDTO
+    {
+        $rdv = $this->repository->findById($id);
+        return RendezVousDTO::fromEntity($rdv);
+    }
 }
