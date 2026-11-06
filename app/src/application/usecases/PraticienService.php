@@ -7,7 +7,7 @@ namespace toubilib\application\usecases;
 use toubilib\application\dtos\PraticienDTO;
 use toubilib\application\ports\api\PraticienServiceInterface;
 use toubilib\application\ports\spi\PraticienRepositoryInterface;
-use toubilib\application\ports\api\PraticienDetailDTO;
+use toubilib\application\dtos\PraticienDetailDTO;
 
 class PraticienService implements PraticienServiceInterface
 {
