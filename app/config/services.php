@@ -46,4 +46,10 @@ return [
     PraticienRepositoryInterface::class => fn(ContainerInterface $c) =>
         $c->get(PraticienRepository::class),
 
+    RendezVousRepositoryInterface::class => fn($c) => new RendezVousRepository($c->get('pdo.toubilib')),
+    RendezVousServiceInterface::class => fn($c) => new RendezVousService(
+        $c->get(CreateRdvValidator::class),
+        $c->get(RendezVousRepositoryInterface::class)
+    ),
+
 ];
