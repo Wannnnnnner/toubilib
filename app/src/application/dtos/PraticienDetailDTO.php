@@ -1,5 +1,5 @@
 <?php
-namespace toubilib\application\dto;
+namespace toubilib\application\dtos;
 
 use toubilib\domain\entities\Praticien;
 

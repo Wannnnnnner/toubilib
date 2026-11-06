@@ -7,6 +7,7 @@ namespace toubilib\application\usecases;
 use toubilib\application\dtos\PraticienDTO;
 use toubilib\application\ports\api\PraticienServiceInterface;
 use toubilib\application\ports\spi\PraticienRepositoryInterface;
+use toubilib\application\ports\api\PraticienDetailDTO;
 
 class PraticienService implements PraticienServiceInterface
 {
@@ -29,5 +30,10 @@ class PraticienService implements PraticienServiceInterface
             ),
             $this->praticienRepository->findAll()
         );
+    }
+
+    public function getPraticien(string $id): PraticienDetailDTO
+    {
+        return PraticienDetailDTO::fromEntity($this->praticienRepository->findById($id));
     }
 }
